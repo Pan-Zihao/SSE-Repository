@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动手学大模型应用开发</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>用户登录</h2>
+            <div class="login-form">
+                <input type="text" id="username" placeholder="用户名">
+                <input type="password" id="password" placeholder="密码">
+                <button id="loginButton">登录</button>
+                <button id="registerButton">注册</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-left">
+            <img src="img/logo.png" alt="奇想星球" class="logo">
+            <div class="title">动手学大模型应用开发</div>
+        </div>
+        <div class="header-right">
+            <div id="userInfo" class="user-info">
+                <span id="welcomeText">未登录</span>
+                <button id="loginToggle" class="login-button">登录</button>
+                <button id="logoutButton" class="login-button" style="display: none;">退出</button>
+            </div>
+            <button id="langToggle" class="lang-button">中/En</button>
+            <img src="img/datawhale_logo.png" alt="Datawhale" class="logo">
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="chat-section">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <button class="history-button">
+                        <i class="fas fa-history"></i> 历史记录
+                    </button>
+                </div>
+
+                <div class="history-modal" style="display: none;">
+                    <div class="history-modal-content">
+                        <div class="history-modal-header">
+                            <h3>聊天历史</h3>
+                            <button class="close-history">&times;</button>
+                        </div>
+                        <div class="history-list">
+                            <!-- 历史记录将在这里动态添加 -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="messages-container">
+                    <!-- 系统欢迎消息 -->
+                    <div class="message system">
+                        <div class="message-content">
+                            llm_universe 是一个动手学习大模型应用开发的教程仓库，主要包括大模型的简介、API调用、开发流程、数据库搭建、Prompt设计、验证法代、前后端开发等内容。这个项目的目的是帮助小白开发者快速掌握大模型应用开发的基础技能。
+                        </div>
+                        <button class="copy-btn">复制</button>
+                    </div>
+                    <!-- 对话消息将在这里动态添加 -->
+                </div>
+            </div>
+
+            <div class="input-container">
+                <textarea class="prompt-input" placeholder="输入您的问题..."></textarea>
+                <button class="send-button">发送</button>
+            </div>
+
+            
+
+            <button class="clear-button">清空对话</button>
+        </main>
+
+        <aside class="right-panel">
+            <div class="upload-area">
+                <p>拖放文件至此处</p>
+                <p>- 或 -</p>
+                <button>点击上传</button>
+            </div>
+
+            <div class="model-section">
+                <h3>知识库文件向量化</h3>
+                <div class="model-select-group">
+                    <h4>大语言模型</h4>
+                    <select class="model-select llm-select">
+                        <!-- 选项将由 JavaScript 动态添加 -->
+                    </select>
+
+                    <h4>Embedding model</h4>
+                    <select class="model-select embedding-select">
+                        <!-- 选项将由 JavaScript 动态添加 -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="notes">
+                <p>1. 使用时请先上传自己的知识文件，不然将会解析项目自带的知识库。</p>
+                <p>2. 初始化数据库时间可能较长，请耐心等待。</p>
+            </div>
+        </aside>
+    </div>
+
+    <script type="module" src="js/api.js"></script>
+    <script type="module" src="js/translations.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/chat.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
